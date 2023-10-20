@@ -1,0 +1,116 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="bannerContent">
+                <h1 class="mb-3">Profile Section</h1>
+            </div>
+        </div>
+        {% comment %} SECCION DE PERFIL CON EL NOMBRE {% endcomment %}
+        <div class="container-fluid">
+            
+            <section style="background-color: #eee;">
+                <div class="row"> 
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3"> '{{ user.username }}'</h5>
+                            <p class="text-muted mb-1">Rol: Cliente </p>
+                            <div class="d-flex justify-content-center mb-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {% comment %} SECCION DE PERFIL CON LAS OPCIONES {% endcomment %}
+
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                <h5 class="my-3">Options</h5>
+                                <hr>
+                            </div>
+                        
+                            <div class="row">
+                                <div class="col-md-3"> 
+                                    <a href="{%url 'main:add-products'%}"><button type="button" class="btn btn-primary">
+                                        Add Product
+                                    </button> </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="{%url 'main:add-categories'%}"><button type="button" class="btn btn-primary">Add Category</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        {% comment %} SECCION DE HISTORIAL {% endcomment %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+                                <div class="card-body">
+                                    <p class="mb-4"><span class="text-primary font-italic me-1">Historial de Reviews</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-4 mb-md-0">
+                                <div class="card-body">
+                                    <p class="mb-4"><span class="text-primary font-italic me-1">Historial de productos publicados</span>
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+<!-- ================================
+End Content
+================================= -->

@@ -1,0 +1,103 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+    <div style="height: 330px;">
+        <div class="innerPageBannerCol">
+            <div class="container">
+                <div class="bannerContent">
+                    <h1 class="mb-3">Modify Review</h1>
+                </div>
+                <p></p>
+                <hr>
+                <p></p>
+                <a href="{% url 'main:product-detail'  product.pk %} ">
+                    <button class="btn mb-3 mr-3 btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l-4 4 4 4M16 12H9"/></svg>
+                        <span>
+                            Go Back To The Product
+                        </span></button>
+                </a>            
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
+    {% comment %} SECCION DE FORMULARIO {% endcomment %}
+        <div class="container-xxl">
+            <section style="background-color: #eee;">
+            <!-- AQUI EMPIEZA EL EDITOR -->
+            <form method="post" enctype="multipart/form-data">
+                <div class="container-fluid">
+                    {% csrf_token %}
+                    <center>
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == "error" %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success" role="alert">
+                            {{ message }}
+                            </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </center>
+                    <p style="height: 10px;"></p>
+                    <div class="form-group">
+                        {{form.as_p}}
+                        {{form.media}}
+                        <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+                        <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+                    </div>
+                </div>
+                <center>
+                <button type="submit" class="btn btn-primary">Edit Review</button>
+                <p></p>
+                <p style="height: 10px;"></p>
+                </center>
+            </form>
+    {% comment %} {% endcomment %} 
+            </section>
+        </div>
+
+
+
+
+
+<!-- ================================
+End Content
+================================= -->
+{%endblock%} 
+    

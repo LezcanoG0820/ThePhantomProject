@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+
+<section>
+    <div style="height: 330px;">
+        <div class="innerPageBannerCol">
+            <div class="container">
+                <div class="bannerContent">
+                    <h1 class="mb-3">Delete Review</h1>
+                </div>
+                <p></p>
+                <hr>
+                <p></p>
+                <a href="{% url 'main:product-detail'  product.pk %} ">
+                    <button class="btn mb-3 mr-3 btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l-4 4 4 4M16 12H9"/></svg>
+                        <span>
+                            Go Back To The Product
+                        </span></button>
+                </a>            
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>>
+    {% comment %} SECCION DE FORMULARIO {% endcomment %}
+        <div class="container-xxl">
+            <center>
+            <section style="background-color: #eee;">
+            <!-- AQUI EMPIEZA EL EDITOR -->
+            <h3 class="mb-3">Are You Sure? </h3>
+            <form method="post" enctype="multipart/form-data">
+                <div class="container-fluid">
+                    <h5 class="mb-3"> ENG: You are about to delete this review. This action cannot be undone
+                        <p></p>
+                            ESP: Estas a punto de eliminar esta review/reseña. Esta acción no se puede deshacer.
+                        </h5> 
+                    {% csrf_token %}
+                    
+                <button type="submit" class="btn btn-danger">DELETE REVIEW</button>
+                <p></p>
+                </div>
+                </center>
+            </form>
+    {% comment %} {% endcomment %} 
+            </section>
+        </div>
+
+
+<!-- ================================
+End Content
+================================= -->
+{%endblock%} 
+    
